@@ -5,12 +5,7 @@
     min-height: 100vh;
   }
   
-  .title {
-    font-size: 28px;
-    color: white;
-    margin-bottom: 20px;
-  }
-  
+
   .video-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -35,26 +30,4 @@
     transform: scale(1.05);
   }
   
-  .home-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    margin-top: 20px;
-    background-color: #ff69b4;
-    padding: 10px 20px;
-    border-radius: 20px;
-    transition: background 0.3s ease;
-  }
-  
-  .home-button .icon {
-    margin-right: 8px;
-    font-size: 22px;
-  }
-  
-  .home-button:hover {
-    background-color: #ff1493;
-  }
-  
+ 

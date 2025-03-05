@@ -1,53 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 import "../styles/ImagesPage.css";
-import { motion } from "framer-motion";
-import image1 from "../assets/images/IMG_20250305_085308_067.jpg";
-import image2 from "../assets/images/IMG_20250305_085540_788.jpg";
-import image3 from "../assets/images/IMG_20250305_085455_670.jpg";
-import image4 from "../assets/images/IMG_20250305_085416_425.jpg";
-import image5 from "../assets/images/IMG_20250305_085311_720.jpg";
 
-const images = [image1, image2, image3, image4, image5];;
+import image1 from "../assets/images/IMG_20250305_085308_067.jpg";
+import image2 from "../assets/images/IMG_20250305_085315_836.jpg";
+import image3 from "../assets/images/IMG_20250305_085322_394.jpg";
+import image4 from "../assets/images/IMG_20250305_085329_506.jpg";
+import image5 from "../assets/images/IMG_20250305_085311_720.jpg";
+import image6 from "../assets/images/IMG_20250305_085332_778.jpg";
+import image7 from "../assets/images/IMG_20250305_085335_701.jpg";
+import image8 from "../assets/images/IMG_20250305_085338_552.jpg";
+import image9 from "../assets/images/IMG_20250305_085342_347.jpg";
+import image10 from "../assets/images/IMG_20250305_085348_874.jpg";
+
+const images = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10];;
 
 const ImagesPage = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
   return (
     <div className="images-container">
-      <motion.h1 
-        className="title"
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        Days With Bae 💖
-      </motion.h1>
+      <h1 className="title">Days With Bae 💖</h1>
       
       <div className="image-grid"> 
         {images.map((src, index) => (
-          <motion.div 
-            key={index} 
-            className="image-card"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
-          >
+          <div key={index} className="image-card" onClick={() => setSelectedImage(src)}>
             <img src={src} alt={`Women's Day ${index + 1}`} />
-          </motion.div>
+          </div>
         ))}
       </div>
+      
+      {selectedImage && (
+        <div className="modal" onClick={() => setSelectedImage(null)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="close-button" onClick={() => setSelectedImage(null)}>&times;</button>
+            <div className="modal-image-wrapper">
+              <img src={selectedImage} alt="Selected" className="modal-image" />
+            </div>
+          </div>
+        </div>
+      )}
 
-      <motion.div 
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-      >
-        <Link to="/" className="home-button">
-          <FaHome className="icon" />
-          <span>Trang Chủ</span>
-        </Link>
-      </motion.div>
+      <Link to="/" className="home-button">
+        <FaHome className="icon" />
+        <span>Trang Chủ</span>
+      </Link>
     </div>
   );
 };
