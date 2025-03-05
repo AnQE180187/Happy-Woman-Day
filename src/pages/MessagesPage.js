@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
-
+import "../styles/MessagesPage.css";
 
 const messages = [
   "Chúc mừng Ngày Phụ Nữ! Chúc bạn luôn xinh đẹp, mạnh mẽ và hạnh phúc! 💖",
